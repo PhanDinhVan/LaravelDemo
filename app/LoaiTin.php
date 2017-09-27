@@ -10,7 +10,7 @@ class LoaiTin extends Model
     protected $table = "LoaiTin";
 
     public function theloai(){
-    	return $this->belongTo('App\TheLoai','idTheLoai','id');
+    	return $this->belongsTo('App\TheLoai','idTheLoai','id');
     }
 
     public function tintuc(){

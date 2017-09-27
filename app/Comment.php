@@ -10,10 +10,10 @@ class Comment extends Model
     protected $table = "Comment";
 
     public function tintuc(){
-    	return $this->belongTo('App\TinTuc','idTinTuc','id');
+    	return $this->belongsTo('App\TinTuc','idTinTuc','id');
     }
 
     public function user(){
-    	return $this->belongTo('App\User','idUser','id');
+    	return $this->belongsTo('App\User','idUser','id');
     }
 }

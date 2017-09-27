@@ -51,11 +51,12 @@ class TheLoaiController extends Controller
     public function postAdd(Request $request){
     	$this->validate($request,
     		[
-    			'Ten'=>'required|min:3|max:50'
+    			'Ten'=>'required|unique:TheLoai,Ten|min:3|max:50'
     		],
     		[
     			'Ten.required'=>'Vui lòng nhập tên thể loại',
-    			'Ten.min'=>'Tên thể phải có ít nhất 2 kí tự',
+                'Ten.unique'=>'Tên thể loại đã tồn tại',
+    			'Ten.min'=>'Tên thể loại phải có ít nhất 2 kí tự',
     			'Ten.max'=>'Tên thể loại không được quá 50 kí tự',
     		]);
 

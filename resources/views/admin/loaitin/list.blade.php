@@ -12,6 +12,11 @@
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
+                    @if(session('thongbao'))
+                        <div class="alert alert-success">
+                            {{session('thongbao')}}    
+                        </div>
+                    @endif
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
@@ -24,12 +29,17 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach($loaitin as $value)
                                 <tr class="odd gradeX" align="center">
                                     <td>{{$value->id}}</td>
+
                                     <td>{{$value->Ten}}</td>
+
                                     <td>{{$value->TenKhongDau}}</td>
+
                                     <td>{{$value->theloai->Ten}}</td>
+
                                     <td class="center">
                                         <i class="fa fa-trash-o  fa-fw"></i>
                                         <a href="admin/loaitin/delete/{{$value->id}}"> Delete</a>
@@ -40,6 +50,7 @@
                                     </td>
                                 </tr>
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>

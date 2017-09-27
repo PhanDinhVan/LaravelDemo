@@ -12,7 +12,7 @@
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
-                     @if(session('thongbao'))
+                    @if(session('thongbao'))
                         <div class="alert alert-success">
                             {{session('thongbao')}}    
                         </div>
