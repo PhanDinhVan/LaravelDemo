@@ -13,6 +13,7 @@
 
 use App\TheLoai;
 use App\TinTuc;
+use App\LoaiTin;
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,17 +50,39 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('delete/{id}','LoaiTinController@getDelete');
 	});
 
-	Route::group(['prefix'=>'slide'],function(){
-		Route::get('list','SlideController@getList');
-		Route::get('edit','SlideController@getEdit');
-		Route::get('add','SlideController@getAdd');
-	});
 
 	Route::group(['prefix'=>'tintuc'],function(){
 		Route::get('list','TinTucController@getList');
-		Route::get('edit','TinTucController@getEdit');
+
+		Route::get('edit/{id}','TinTucController@getEdit');
+		Route::post('edit/{id}','TinTucController@postEdit');
+
 		Route::get('add','TinTucController@getAdd');
+		Route::post('add','TinTucController@postAdd');
+
+		Route::get('delete/{id}','TinTucController@getDelete');
 	});
+
+	Route::group(['prefix'=>'comment'],function(){
+		Route::get('delete/{idComment}/{idTinTuc}','CommentController@getDelete');
+	});
+
+	Route::group(['prefix'=>'ajax'],function(){
+		Route::get('loaitin/{idTheLoai}','AjaxController@getLoaiTin');
+	});
+
+	Route::group(['prefix'=>'slide'],function(){
+		Route::get('list','SlideController@getList');
+
+		Route::get('edit/{id}','SlideController@getEdit');
+		Route::post('edit/{id}','SlideController@postEdit');
+
+		Route::get('add','SlideController@getAdd');
+		Route::post('add','SlideController@postAdd');
+
+		Route::get('delete/{id}','SlideController@getDelete');
+	});
+
 
 	Route::group(['prefix'=>'user'],function(){
 		Route::get('list','UserController@getList');
