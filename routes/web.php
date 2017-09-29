@@ -19,7 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'admin'],function(){
+Route::get('admin/login','UserController@getLoginAdmin');
+Route::post('admin/login','UserController@postLoginAdmin');
+Route::get('admin/logout','UserController@getLogoutAdmin');
+
+Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 	Route::group(['prefix'=>'theloai'],function(){
 		// hien thi view
 		Route::get('list','TheLoaiController@getList');
@@ -86,8 +90,16 @@ Route::group(['prefix'=>'admin'],function(){
 
 	Route::group(['prefix'=>'user'],function(){
 		Route::get('list','UserController@getList');
-		Route::get('edit','UserController@getEdit');
+
+		Route::get('edit/{id}','UserController@getEdit');
+		Route::post('edit/{id}','UserController@postEdit');
+
 		Route::get('add','UserController@getAdd');
+		Route::post('add','UserController@postAdd');
+
+		Route::get('delete/{id}','UserController@getDelete');
 	});
 
 });
+
+Route::get('home','PagesController@home');

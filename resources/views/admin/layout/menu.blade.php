@@ -64,7 +64,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="admin/user/list"><i class="fa fa-bar-chart-o fa-fw"></i> User<span class="fa arrow"></span></a>
+                            <a href="admin/user/list"><i class="fa fa-users fa-fw""></i> User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="admin/user/list">List User</a>
