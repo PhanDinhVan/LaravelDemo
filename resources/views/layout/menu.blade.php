@@ -10,9 +10,9 @@
                 </li>
                
                 <ul>
-                    @foreach($value->loaitin as $tl)
+                    @foreach($value->loaitin as $lt)
                 		<li class="list-group-item">
-                			<a href="#">{{$tl->Ten}}</a>
+                			<a href="#">{{$lt->Ten}}</a>
                 		</li>
                     @endforeach
                 </ul>

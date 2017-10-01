@@ -4,14 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TheLoai;
-
+use App\Slide;
 
 class PagesController extends Controller
 {
+	// dung view()->share de truyen 1 bien vao tat ca cac view co trong controller
+	function __construct(){
+		$theloai = TheLoai::all();
+		$slide = Slide::all();
+		view()->share('theloai',$theloai);
+		view()->share('slide',$slide);
+	}
     //
     function home(){
-    	$theloai = TheLoai::all();
+    	
+    	return view('pages.home');
+    }
 
-    	return view('pages.home',['theloai'=>$theloai]);
+    function contact(){
+
+    	return view('pages.contact');
     }
 }

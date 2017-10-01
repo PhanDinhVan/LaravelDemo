@@ -103,3 +103,4 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 });
 
 Route::get('home','PagesController@home');
+Route::get('contact','PagesController@contact');
