@@ -11,6 +11,9 @@
 
     <title>AMAGUMO Labs - @yield('title')</title>
 
+    <!-- dung de chi dung duong dan css -->
+    <base href="{{asset('')}}">
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 

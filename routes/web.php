@@ -104,3 +104,15 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
 Route::get('home','PagesController@home');
 Route::get('contact','PagesController@contact');
+Route::get('loaitin/{id}/{TenKhongDau}.html','PagesController@loaitin');
+Route::get('tintuc/{id}/{TenKhongDau}.html','PagesController@tintuc');
+
+// Tao trang dang nhap cho user
+Route::get('login','UserLoginController@getLogin');
+Route::post('login','UserLoginController@postLogin');
+Route::get('logout','UserLoginController@getLogout');
+
+Route::post('comment/{id}','CommentController@postComment');
+
+Route::get('account','UserLoginController@getAccount');
+Route::post('account','UserLoginController@postAccount');

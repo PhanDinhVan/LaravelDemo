@@ -15,10 +15,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Giới thiệu</a>
+                    <a href="about">Giới thiệu</a>
                 </li>
                 <li>
-                    <a href="#">Liên hệ</a>
+                    <a href="contact">Liên hệ</a>
                 </li>
             </ul>
 
@@ -28,25 +28,27 @@
 		        </div>
 		        <button type="submit" class="btn btn-default">Submit</button>
 		    </form>
-
+            
 		    <ul class="nav navbar-nav pull-right">
-                <li>
-                    <a href="#">Đăng ký</a>
-                </li>
-                <li>
-                    <a href="#">Đăng nhập</a>
-                </li>
-                <li>
-                	<a>
-                		<span class ="glyphicon glyphicon-user"></span>
-                		Bùi Đức Phú
-                	</a>
-                </li>
+                 @if(Auth::check())
+                    <li>
+                        <a href="account">
+                            <span class ="glyphicon glyphicon-user"></span>
+                            {{Auth::user()->name}} 
+                        </a>
+                    </li>
 
-                <li>
-                	<a href="#">Đăng xuất</a>
-                </li>
-                
+                    <li>
+                        <a href="logout">Logout</a>
+                    </li>
+                @else
+                    <li>
+                        <a href="signin">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="login">Login</a>
+                    </li>
+                @endif
             </ul>
         </div>
 

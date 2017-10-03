@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TheLoai;
 use App\Slide;
+use App\LoaiTin;
+use App\TinTuc;
 
 class PagesController extends Controller
 {
@@ -24,5 +26,20 @@ class PagesController extends Controller
     function contact(){
 
     	return view('pages.contact');
+    }
+
+    function loaitin($id){
+        $loaitin = LoaiTin::find($id);
+        // paginate la phan trang trong laravel
+        $tintuc = TinTuc::where('idLoaiTin',$id)->paginate(5);
+        return view('pages.loaitin',['loaitin'=>$loaitin,'tintuc'=>$tintuc]);
+    }
+
+    function tintuc($id){
+        $tintuc = TinTuc::find($id);
+        $tinnoibat = TinTuc::where('NoiBat',1)->take(4)->get();
+        $tinlienquan = TinTuc::where('idLoaiTin',$tintuc->idLoaiTin)->take(4)->get();
+
+        return view('pages.tintuc',['tintuc'=>$tintuc, 'tinnoibat'=>$tinnoibat, 'tinlienquan'=>$tinlienquan]);
     }
 }
