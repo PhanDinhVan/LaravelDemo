@@ -42,4 +42,15 @@ class PagesController extends Controller
 
         return view('pages.tintuc',['tintuc'=>$tintuc, 'tinnoibat'=>$tinnoibat, 'tinlienquan'=>$tinlienquan]);
     }
+
+    function search(Request $request){
+        $keyWord = $request->tukhoa;      
+        $tintuc = TinTuc::where('TieuDe','like',"%$keyWord%")->orWhere('TomTat','like',"%$keyWord%")->orWhere('NoiDung','like',"%$keyWord%")->take(30)->paginate(5);
+
+        return view('pages.search',['tintuc'=>$tintuc,'keyWord'=>$keyWord]);
+    }
+
+    function about(){
+        return view('pages.about');
+    }
 }

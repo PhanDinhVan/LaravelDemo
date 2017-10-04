@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Laravel Tin Tức</a>
+            <a class="navbar-brand" href="home">Laravel Tin Tức</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -22,11 +22,12 @@
                 </li>
             </ul>
 
-            <form class="navbar-form navbar-left" role="search">
+            <form action="search" method="POST" class="navbar-form navbar-left" role="search">
+                <input type="hidden" name="_token" value="{{csrf_token()}}"; /> 
 		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
+		          <input type="text" name = "tukhoa" class="form-control" placeholder="Search">
 		        </div>
-		        <button type="submit" class="btn btn-default">Submit</button>
+		        <button type="submit" class="btn btn-default">Search</button>
 		    </form>
             
 		    <ul class="nav navbar-nav pull-right">
@@ -43,7 +44,7 @@
                     </li>
                 @else
                     <li>
-                        <a href="signin">Sign in</a>
+                        <a href="register">Sign in</a>
                     </li>
                     <li>
                         <a href="login">Login</a>

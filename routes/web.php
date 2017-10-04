@@ -106,6 +106,8 @@ Route::get('home','PagesController@home');
 Route::get('contact','PagesController@contact');
 Route::get('loaitin/{id}/{TenKhongDau}.html','PagesController@loaitin');
 Route::get('tintuc/{id}/{TenKhongDau}.html','PagesController@tintuc');
+Route::post('search','PagesController@search');
+Route::get('about','PagesController@about');
 
 // Tao trang dang nhap cho user
 Route::get('login','UserLoginController@getLogin');
@@ -116,3 +118,6 @@ Route::post('comment/{id}','CommentController@postComment');
 
 Route::get('account','UserLoginController@getAccount');
 Route::post('account','UserLoginController@postAccount');
+
+Route::get('register','UserLoginController@getRegister');
+Route::post('register','UserLoginController@postRegister');

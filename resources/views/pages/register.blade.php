@@ -2,7 +2,6 @@
 
 
 @section('content')
-
 <!-- Page Content -->
 <div class="container">
 
@@ -12,7 +11,7 @@
         </div>
         <div class="col-md-8">
             <div class="panel panel-default">
-			  	<div class="panel-heading">Thông tin tài khoản</div>
+			  	<div class="panel-heading">Đăng ký tài khoản</div>
 			  	<div class="panel-body">
 			  		@if(count($errors) > 0)
                         <div class="alert alert-danger">
@@ -27,32 +26,30 @@
                             {{session('thongbao')}}
                         </div>
                     @endif
-			    	<form action="account" method="POST">
+			    	<form action="register" method="POST">
 			    		<input type="hidden" name="_token" value="{{csrf_token()}}">
 			    		<div>
-			    			<label>Full name</label>
-						  	<input type="text" class="form-control" placeholder="Username" name="name" aria-describedby="basic-addon1" value="{{$user->name}}">
+			    			<label>Họ tên</label>
+						  	<input type="text" class="form-control" placeholder="Username" name="name" aria-describedby="basic-addon1">
 						</div>
 						<br>
 						<div>
 			    			<label>Email</label>
 						  	<input type="email" class="form-control" placeholder="Email" name="email" aria-describedby="basic-addon1"
-						  	readonly value="{{$user->email}}" 
 						  	>
 						</div>
 						<br>	
 						<div>
-							<input type="checkbox" id="changePassword" name="checkpassword">
-			    			<label>Change password</label>
-						  	<input type="password" class="form-control password" name="password" aria-describedby="basic-addon1" disabled>
+			    			<label>Nhập mật khẩu</label>
+						  	<input type="password" class="form-control" name="password" aria-describedby="basic-addon1">
 						</div>
 						<br>
 						<div>
-			    			<label>Enter passwords again</label>
-						  	<input type="password" class="form-control password" name="passwordAgain" aria-describedby="basic-addon1" disabled>
+			    			<label>Nhập lại mật khẩu</label>
+						  	<input type="password" class="form-control" name="passwordAgain" aria-describedby="basic-addon1">
 						</div>
 						<br>
-						<button type="submit" class="btn btn-default">Save
+						<button type="submit" class="btn btn-default">Đăng ký
 						</button>
 
 			    	</form>
@@ -66,19 +63,4 @@
 </div>
 <!-- end Page Content -->
 
-@endsection
-
-
-@section('script')
-<script>
-    $(document).ready(function(){
-        $("#changePassword").change(function(){
-            if($(this).is(":checked")){
-                $(".password").removeAttr('disabled');
-            }else{
-                $(".password").attr('disabled','');
-            }
-        });
-    });
-</script>
 @endsection
